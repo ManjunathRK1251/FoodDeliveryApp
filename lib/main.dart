@@ -4,15 +4,15 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:blur/blur.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({Key? key}) : super(key: key);
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       //color: Colors.amber,
       debugShowCheckedModeBanner: false,
       home: SafeArea(
@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
+// ignore: camel_case_types
 class homescreen extends StatefulWidget {
   const homescreen({
     Key? key,
@@ -31,6 +32,7 @@ class homescreen extends StatefulWidget {
   State<homescreen> createState() => _homescreenState();
 }
 
+// ignore: camel_case_types
 class _homescreenState extends State<homescreen> {
   late int selectedIndex = 0;
   String? _dropdownvalue = "India";
@@ -51,7 +53,7 @@ class _homescreenState extends State<homescreen> {
                   child: SvgPicture.asset('assets/icons/menu.svg',
                       width: 20, height: 20),
                 ),
-                SizedBox(width: 65),
+                const SizedBox(width: 65),
                 Expanded(
                   flex: 3,
                   child: Row(
@@ -60,12 +62,12 @@ class _homescreenState extends State<homescreen> {
                           width: 30,
                           height: 30,
                           alignment: Alignment.topCenter),
-                      SizedBox(width: 10, height: 10),
+                      const SizedBox(width: 10, height: 10),
                       DropdownButtonHideUnderline(
                         child: DropdownButton(
                           alignment: Alignment.bottomLeft,
                           value: _dropdownvalue,
-                          icon: Icon(
+                          icon: const Icon(
                             Icons.keyboard_arrow_down,
                             color: Color(0xffC86C00),
                           ),
@@ -83,7 +85,7 @@ class _homescreenState extends State<homescreen> {
                     ],
                   ),
                 ),
-                Expanded(
+                const Expanded(
                   child: Icon(
                     Icons.notifications_none,
                     size: 30,
@@ -92,7 +94,7 @@ class _homescreenState extends State<homescreen> {
               ],
             ),
           ),
-          SizedBox(height: 60.0),
+          const SizedBox(height: 60.0),
           RichText(
             text: TextSpan(
               text: 'What do you want\n        for ',
@@ -109,7 +111,7 @@ class _homescreenState extends State<homescreen> {
               ],
             ),
           ),
-          SizedBox(height: 30.0),
+          const SizedBox(height: 30.0),
           Padding(
             padding: const EdgeInsets.only(
               left: 20.0,
@@ -119,12 +121,12 @@ class _homescreenState extends State<homescreen> {
                 child: // Figma Flutter Generator SearchyourfoodWidget - TEXT
                     Row(
                   children: [
-                    SizedBox(width: 15.0),
+                    const SizedBox(width: 15.0),
                     SvgPicture.asset('assets/icons/search.svg'),
-                    SizedBox(
+                    const SizedBox(
                       width: 40.0,
                     ),
-                    Text(
+                    const Text(
                       'Search your food',
                       //textAlign: TextAlign.center,
                       style: TextStyle(
@@ -136,7 +138,7 @@ class _homescreenState extends State<homescreen> {
                           fontWeight: FontWeight.normal,
                           height: 1),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 40.0,
                     ),
                     SvgPicture.asset('assets/icons/preferences.svg'),
@@ -144,7 +146,7 @@ class _homescreenState extends State<homescreen> {
                 ),
                 width: 376,
                 height: 77,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(25),
                     topRight: Radius.circular(25),
@@ -174,7 +176,7 @@ class _homescreenState extends State<homescreen> {
               top: 10.0,
               right: 25.0,
             ),
-            child: Container(
+            child: SizedBox(
               width: 500.0,
               height: 55.0,
               child: ListView.builder(
@@ -185,7 +187,7 @@ class _homescreenState extends State<homescreen> {
                     child: Category(
                       color: selectedIndex == index
                           ? Colors.orange
-                          : Color(0xffF3F3F3),
+                          : const Color(0xffF3F3F3),
                       textColor:
                           selectedIndex == index ? Colors.white : Colors.black,
                       text: foods[index],
@@ -202,13 +204,13 @@ class _homescreenState extends State<homescreen> {
           ),
           Padding(
             padding: const EdgeInsets.all(20.0),
-            child: Container(
+            child: SizedBox(
               width: 500.0,
               height: 265.0,
               child: ListView.builder(
                 itemCount: 5,
                 itemBuilder: (context, index) {
-                  return FoodTile();
+                  return const FoodTile();
                 },
               ),
             ),
@@ -248,7 +250,7 @@ class Category extends StatelessWidget {
         width: 105,
         height: 55,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.only(
+          borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(15),
             topRight: Radius.circular(15),
             bottomLeft: Radius.circular(15),
@@ -287,7 +289,7 @@ class _FoodTileState extends State<FoodTile> {
               //child: Image.asset('assets/icons/burger3.jpg', fit: BoxFit.fitWidth),
               width: 366,
               height: 199,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage('assets/icons/burger3.jpg'),
                   fit: BoxFit.fill,
@@ -306,9 +308,9 @@ class _FoodTileState extends State<FoodTile> {
             bottom: 4.5,
             left: 3.7,
             child: Blur(
-              blur: 4.0,
+              blur: 50.0,
               blurColor: Colors.white10.withOpacity(0.5),
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                 bottomRight: Radius.circular(20),
                 bottomLeft: Radius.circular(20),
               ),
@@ -320,7 +322,7 @@ class _FoodTileState extends State<FoodTile> {
               ),
             ),
           ),
-          Positioned(
+          const Positioned(
             bottom: 25.0,
             left: 20.0,
             child: Text(
@@ -338,7 +340,7 @@ class _FoodTileState extends State<FoodTile> {
             ),
           ),
           // Figma Flutter Generator BurgersWidget - TEXT
-          Positioned(
+          const Positioned(
             bottom: 10.0,
             left: 21.0,
             child: Text(
@@ -354,7 +356,7 @@ class _FoodTileState extends State<FoodTile> {
                   height: 1),
             ),
           ),
-          Positioned(
+          const Positioned(
             bottom: 6.0,
             left: 73.0,
             child: Text(
@@ -370,7 +372,7 @@ class _FoodTileState extends State<FoodTile> {
                   height: 1),
             ),
           ),
-          Positioned(
+          const Positioned(
             bottom: 10.0,
             left: 85.0,
             child: Text(
