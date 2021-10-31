@@ -118,8 +118,7 @@ class _homescreenState extends State<homescreen> {
               right: 20.0,
             ),
             child: Container(
-                child: // Figma Flutter Generator SearchyourfoodWidget - TEXT
-                    Row(
+                child: Row(
                   children: [
                     const SizedBox(width: 15.0),
                     SvgPicture.asset('assets/icons/search.svg'),
@@ -178,7 +177,7 @@ class _homescreenState extends State<homescreen> {
             ),
             child: SizedBox(
               width: 500.0,
-              height: 55.0,
+              height: 60.0,
               child: ListView.builder(
                 itemCount: 4,
                 scrollDirection: Axis.horizontal,
@@ -203,15 +202,32 @@ class _homescreenState extends State<homescreen> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(20.0),
+            padding: const EdgeInsets.only(left: 27.0, top: 10.0),
+            child: Align(
+              alignment: Alignment.bottomLeft,
+              child: Text('Popular',
+                  //textAlign: TextAlign.right,
+                  style: GoogleFonts.robotoSlab(
+                    color: Colors.black,
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.w600,
+                  )),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
             child: SizedBox(
               width: 500.0,
-              height: 265.0,
-              child: ListView.builder(
-                itemCount: 5,
-                itemBuilder: (context, index) {
-                  return const FoodTile();
-                },
+              height: 210.0,
+              child: GlowingOverscrollIndicator(
+                axisDirection: AxisDirection.down,
+                color: Colors.orange,
+                child: ListView.builder(
+                  itemCount: 5,
+                  itemBuilder: (context, index) {
+                    return const FoodTile();
+                  },
+                ),
               ),
             ),
           ),
