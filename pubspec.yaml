@@ -37,6 +37,7 @@ dependencies:
   flutter_svg: ^0.23.0+1
   google_fonts: ^2.1.0
   blur: ^3.0.0
+  eva_icons_flutter: ^3.0.2
 
 dev_dependencies:
   flutter_test:
