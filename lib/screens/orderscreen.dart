@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
+import 'package:food_delivery_app/widgets/backarrow.dart';
+import 'package:food_delivery_app/widgets/itemCounter.dart';
+import 'package:food_delivery_app/widgets/likebutton.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class OrderScreen extends StatefulWidget {
@@ -37,7 +40,7 @@ class _OrderScreenState extends State<OrderScreen> {
                   //ItemCounter(),
                 ],
               ),
-              Positioned(bottom: -25.0, left: 105.0, child: ItemCounter()),
+              Positioned(bottom: 0.0, left: 105.0, child: ItemCounter()),
             ],
           ),
         ],
@@ -67,180 +70,6 @@ class FoodPhoto extends StatelessWidget {
             image: AssetImage('assets/icons/burger3.jpg'), fit: BoxFit.fill),
       ),
       //child: Image.asset('assets/icons/burger3.jpg'),
-    );
-  }
-}
-
-class LikeButton extends StatefulWidget {
-  LikeButton({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  State<LikeButton> createState() => _LikeButtonState();
-}
-
-class _LikeButtonState extends State<LikeButton>
-    with SingleTickerProviderStateMixin {
-  late AnimationController _animationController;
-  bool isPlaying = false;
-
-  @override
-  void initState() {
-    super.initState();
-    _animationController =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 450));
-  }
-
-  Color color = Colors.black;
-
-  IconData heartOutlineIcon = EvaIcons.heartOutline;
-  IconData heartIcon = EvaIcons.heart;
-  bool isSelected = false;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 54,
-      height: 55,
-      child: GestureDetector(
-          child: Icon(
-            isSelected ? heartIcon : heartOutlineIcon,
-            color: isSelected ? Colors.red : Colors.black,
-            size: isSelected ? 35 : 30,
-          ),
-          onTap: () {
-            setState(() {
-              isSelected = !isSelected;
-            });
-          }),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(15),
-          topRight: Radius.circular(15),
-          bottomLeft: Radius.circular(15),
-          bottomRight: Radius.circular(15),
-        ),
-        color: Color.fromRGBO(244, 242, 242, 1),
-      ),
-    );
-  }
-}
-
-class BackArrow extends StatelessWidget {
-  const BackArrow({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        child: Icon(EvaIcons.arrowBack, size: 30),
-        width: 54,
-        height: 55,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(15),
-            topRight: Radius.circular(15),
-            bottomLeft: Radius.circular(15),
-            bottomRight: Radius.circular(15),
-          ),
-          color: Color.fromRGBO(244, 242, 242, 1),
-        ));
-  }
-}
-
-class ItemCounter extends StatefulWidget {
-  const ItemCounter({Key? key}) : super(key: key);
-
-  @override
-  _ItemCounterState createState() => _ItemCounterState();
-}
-
-class _ItemCounterState extends State<ItemCounter> {
-  int count = 1;
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        // Figma Flutter Generator Ellipse1Widget - ELLIPSE
-
-        Container(
-          width: 168,
-          height: 80,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(22),
-              topRight: Radius.circular(22),
-              bottomLeft: Radius.circular(22),
-              bottomRight: Radius.circular(22),
-            ),
-            boxShadow: [
-              BoxShadow(
-                  color: Color.fromRGBO(255, 139, 4, 0.41999998688697815),
-                  offset: Offset(0, 4),
-                  blurRadius: 50)
-            ],
-            color: Color.fromRGBO(243, 238, 238, 1),
-          ),
-        ),
-        Positioned(
-          top: 10.0,
-          left: 55.0,
-          child: Container(
-              width: 58,
-              height: 58,
-              decoration: BoxDecoration(
-                color: Color.fromRGBO(255, 251, 251, 1),
-                borderRadius: BorderRadius.all(Radius.elliptical(58, 58)),
-              )),
-        ),
-
-        Positioned(
-          left: 15.0,
-          child: GestureDetector(
-            onTap: () => setState(() {
-              if (count > 0) {
-                count--;
-              }
-            }),
-            child: Text(
-              '-',
-              style: GoogleFonts.robotoSlab(
-                fontSize: 60.0,
-                fontWeight: FontWeight.w300,
-              ),
-            ),
-          ),
-        ),
-        Positioned(
-          top: 20.0,
-          left: 75.0,
-          child: Text(
-            '$count',
-            style: GoogleFonts.roboto(
-              fontSize: 30.0,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-        ),
-        Positioned(
-          top: 15.0,
-          left: 130.0,
-          child: GestureDetector(
-            onTap: () => setState(() {
-              count++;
-            }),
-            child: Text(
-              '+',
-              style: GoogleFonts.robotoSlab(
-                fontSize: 35.0,
-                fontWeight: FontWeight.w300,
-              ),
-            ),
-          ),
-        ),
-      ],
     );
   }
 }
