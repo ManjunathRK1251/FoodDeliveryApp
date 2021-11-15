@@ -71,17 +71,49 @@ class FoodPhoto extends StatelessWidget {
   }
 }
 
-class LikeButton extends StatelessWidget {
-  const LikeButton({
+class LikeButton extends StatefulWidget {
+  LikeButton({
     Key? key,
   }) : super(key: key);
 
   @override
+  State<LikeButton> createState() => _LikeButtonState();
+}
+
+class _LikeButtonState extends State<LikeButton>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _animationController;
+  bool isPlaying = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _animationController =
+        AnimationController(vsync: this, duration: Duration(milliseconds: 450));
+  }
+
+  Color color = Colors.black;
+
+  IconData heartOutlineIcon = EvaIcons.heartOutline;
+  IconData heartIcon = EvaIcons.heart;
+  bool isSelected = false;
+
+  @override
   Widget build(BuildContext context) {
     return Container(
-      child: Icon(EvaIcons.heartOutline, size: 30),
       width: 54,
       height: 55,
+      child: GestureDetector(
+          child: Icon(
+            isSelected ? heartIcon : heartOutlineIcon,
+            color: isSelected ? Colors.red : Colors.black,
+            size: isSelected ? 35 : 30,
+          ),
+          onTap: () {
+            setState(() {
+              isSelected = !isSelected;
+            });
+          }),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(15),
