@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:food_delivery_app/widgets/FoodPhoto.dart';
+import 'package:food_delivery_app/widgets/IngredientsTile.dart';
+import 'package:food_delivery_app/widgets/ServiceDetails.dart';
 import 'package:food_delivery_app/widgets/backarrow.dart';
 import 'package:food_delivery_app/widgets/foodtile.dart';
 import 'package:food_delivery_app/widgets/itemCounter.dart';
@@ -46,56 +48,6 @@ class _OrderScreenState extends State<OrderScreen> {
                 child: IngredientsTileList(),
               )),
         ],
-      ),
-    );
-  }
-}
-
-class ServiceDetailsTile extends StatelessWidget {
-  List<String> details = ['Free Delivery', '⏰  10-20 min', '⭐  4.8'];
-
-  ServiceDetailsTile({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 50.0,
-      width: 480.0,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: 3,
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.only(
-              left: 10.0,
-              right: 10.0,
-            ),
-            child: Container(
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 15.0),
-                  child: Text(
-                    details[index],
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.roboto(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                width: 105,
-                height: 55,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(15),
-                    topRight: Radius.circular(15),
-                    bottomLeft: Radius.circular(15),
-                    bottomRight: Radius.circular(15),
-                  ),
-                  color: Color.fromRGBO(244, 242, 242, 1),
-                )),
-          );
-        },
       ),
     );
   }
@@ -196,7 +148,7 @@ class IngredientsTileList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 400.0,
-      height: 70.0,
+      height: 80.0,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: 5,
@@ -204,60 +156,6 @@ class IngredientsTileList extends StatelessWidget {
           return IngredientsTile(value: index);
         },
       ),
-    );
-  }
-}
-
-class IngredientsTile extends StatelessWidget {
-  IngredientsTile({Key? key, required this.value}) : super(key: key);
-
-  int value = 1;
-
-  List<String> ingredientsIcon = ['🥩', '🍀', '🫒', '🥚', '🍅'];
-  List<String> ingredientsName = [
-    'Beef',
-    'Lettuce',
-    "Olive oil",
-    'Egg',
-    'Tomato'
-  ];
-
-  @override
-  Widget build(BuildContext context) {
-    return // Figma Flutter Generator Rectangle13Widget - RECTANGLE
-        Padding(
-      padding: const EdgeInsets.only(right: 15.0),
-      child: Container(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              SizedBox(
-                height: 5.0,
-              ),
-              Text(ingredientsIcon[value],
-                  style: TextStyle(
-                    fontSize: 25.0,
-                  )),
-              Text(ingredientsName[value],
-                  style: GoogleFonts.robotoSlab(
-                    fontWeight: FontWeight.w600,
-                  )),
-              SizedBox(
-                height: 5.0,
-              ),
-            ],
-          ),
-          width: 66,
-          height: 56,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(15),
-              topRight: Radius.circular(15),
-              bottomLeft: Radius.circular(15),
-              bottomRight: Radius.circular(15),
-            ),
-            color: Color.fromRGBO(244, 242, 242, 1),
-          )),
     );
   }
 }
