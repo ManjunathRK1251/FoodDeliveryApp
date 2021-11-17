@@ -37,7 +37,14 @@ class _OrderScreenState extends State<OrderScreen> {
           Positioned(left: 310.0, top: 368.0, child: FoodPrice()),
           Positioned(left: 295.0, top: 385.0, child: DollarSymbol()),
           Positioned(left: 10.0, top: 450.0, child: ServiceDetailsTile()),
-          Positioned(left: 20.0, top: 525.0, child: IncredientsText())
+          Positioned(left: 20.0, top: 525.0, child: IncredientsText()),
+          Positioned(
+              left: 20.0,
+              top: 555.0,
+              child: Padding(
+                padding: const EdgeInsets.only(right: 8.0),
+                child: IngredientsTileList(),
+              )),
         ],
       ),
     );
@@ -55,7 +62,7 @@ class ServiceDetailsTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 50.0,
-      width: 500.0,
+      width: 480.0,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: 3,
@@ -178,6 +185,79 @@ class IncredientsText extends StatelessWidget {
         fontWeight: FontWeight.bold,
         fontSize: 19,
       ),
+    );
+  }
+}
+
+class IngredientsTileList extends StatelessWidget {
+  const IngredientsTileList({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 400.0,
+      height: 70.0,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: 5,
+        itemBuilder: (context, index) {
+          return IngredientsTile(value: index);
+        },
+      ),
+    );
+  }
+}
+
+class IngredientsTile extends StatelessWidget {
+  IngredientsTile({Key? key, required this.value}) : super(key: key);
+
+  int value = 1;
+
+  List<String> ingredientsIcon = ['🥩', '🍀', '🫒', '🥚', '🍅'];
+  List<String> ingredientsName = [
+    'Beef',
+    'Lettuce',
+    "Olive oil",
+    'Egg',
+    'Tomato'
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return // Figma Flutter Generator Rectangle13Widget - RECTANGLE
+        Padding(
+      padding: const EdgeInsets.only(right: 15.0),
+      child: Container(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              SizedBox(
+                height: 5.0,
+              ),
+              Text(ingredientsIcon[value],
+                  style: TextStyle(
+                    fontSize: 25.0,
+                  )),
+              Text(ingredientsName[value],
+                  style: GoogleFonts.robotoSlab(
+                    fontWeight: FontWeight.w600,
+                  )),
+              SizedBox(
+                height: 5.0,
+              ),
+            ],
+          ),
+          width: 66,
+          height: 56,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(15),
+              topRight: Radius.circular(15),
+              bottomLeft: Radius.circular(15),
+              bottomRight: Radius.circular(15),
+            ),
+            color: Color.fromRGBO(244, 242, 242, 1),
+          )),
     );
   }
 }
