@@ -15,7 +15,8 @@ class MyApp extends StatelessWidget {
       //color: Colors.amber,
       debugShowCheckedModeBanner: false,
       home: SafeArea(
-        child: OrderScreen(),
+        //child: OrderScreen(),
+        child: homescreen(),
       ),
     );
   }

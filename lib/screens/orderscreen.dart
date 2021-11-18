@@ -21,33 +21,35 @@ class OrderScreen extends StatefulWidget {
 class _OrderScreenState extends State<OrderScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white70,
-      body: Stack(
-        children: [
-          Container(
-            width: double.infinity,
-            height: double.infinity,
-            color: Colors.white,
-          ),
-          FoodPhoto(),
-          Positioned(bottom: 380.0, left: 105.0, child: ItemCounter()),
-          Positioned(left: 315.0, child: LikeButton()),
-          Positioned(left: 20.0, child: BackArrow()),
-          Positioned(left: 20.0, top: 360.0, child: FoodName()),
-          Positioned(left: 20.0, top: 395.0, child: FoodDescription()),
-          Positioned(left: 310.0, top: 368.0, child: FoodPrice()),
-          Positioned(left: 295.0, top: 385.0, child: DollarSymbol()),
-          Positioned(left: 10.0, top: 450.0, child: ServiceDetailsTile()),
-          Positioned(left: 20.0, top: 525.0, child: IncredientsText()),
-          Positioned(
-              left: 20.0,
-              top: 555.0,
-              child: Padding(
-                padding: const EdgeInsets.only(right: 8.0),
-                child: IngredientsTileList(),
-              )),
-        ],
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.white70,
+        body: Stack(
+          children: [
+            Container(
+              width: double.infinity,
+              height: double.infinity,
+              color: Colors.white,
+            ),
+            FoodPhoto(),
+            Positioned(bottom: 380.0, left: 105.0, child: ItemCounter()),
+            Positioned(left: 315.0, child: LikeButton()),
+            Positioned(left: 20.0, child: BackArrow()),
+            Positioned(left: 20.0, top: 360.0, child: FoodName()),
+            Positioned(left: 20.0, top: 395.0, child: FoodDescription()),
+            Positioned(left: 310.0, top: 368.0, child: FoodPrice()),
+            Positioned(left: 295.0, top: 385.0, child: DollarSymbol()),
+            Positioned(left: 10.0, top: 450.0, child: ServiceDetailsTile()),
+            Positioned(left: 20.0, top: 525.0, child: IncredientsText()),
+            Positioned(
+                left: 20.0,
+                top: 555.0,
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 8.0),
+                  child: IngredientsTileList(),
+                )),
+          ],
+        ),
       ),
     );
   }
