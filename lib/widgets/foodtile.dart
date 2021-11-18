@@ -13,8 +13,7 @@ class _FoodTileState extends State<FoodTile> {
   double elevation = 20.0;
   @override
   Widget build(BuildContext context) {
-    return // Figma Flutter Generator Rectangle7Widget - RECTANGLE
-        Padding(
+    return Padding(
       padding: const EdgeInsets.only(bottom: 25.0),
       child: Stack(
         children: [
@@ -25,7 +24,6 @@ class _FoodTileState extends State<FoodTile> {
             elevation: 5.0,
             shadowColor: Colors.black,
             child: Container(
-              //child: Image.asset('assets/icons/burger3.jpg', fit: BoxFit.fitWidth),
               width: 366,
               height: 199,
               decoration: const BoxDecoration(
@@ -68,17 +66,14 @@ class _FoodTileState extends State<FoodTile> {
               'Chillox Burger',
               textAlign: TextAlign.center,
               style: TextStyle(
-                  //color: Color.fromRGBO(0, 0, 0, 1),
                   color: Colors.black,
                   fontFamily: 'Calibri',
                   fontSize: 22,
-                  letterSpacing:
-                      0 /*percentages not used in flutter. defaulting to zero*/,
+                  letterSpacing: 0,
                   fontWeight: FontWeight.w800,
                   height: 1),
             ),
           ),
-          // Figma Flutter Generator BurgersWidget - TEXT
           const Positioned(
             bottom: 10.0,
             left: 21.0,
@@ -89,8 +84,7 @@ class _FoodTileState extends State<FoodTile> {
                   color: Colors.black54,
                   fontFamily: 'Calibri',
                   fontSize: 15,
-                  letterSpacing:
-                      0 /*percentages not used in flutter. defaulting to zero*/,
+                  letterSpacing: 0,
                   fontWeight: FontWeight.normal,
                   height: 1),
             ),
@@ -105,8 +99,7 @@ class _FoodTileState extends State<FoodTile> {
                   color: Colors.black54,
                   fontFamily: 'Calibri',
                   fontSize: 45,
-                  letterSpacing:
-                      0 /*percentages not used in flutter. defaulting to zero*/,
+                  letterSpacing: 0,
                   fontWeight: FontWeight.normal,
                   height: 1),
             ),
@@ -121,8 +114,7 @@ class _FoodTileState extends State<FoodTile> {
                   color: Colors.black54,
                   fontFamily: 'Calibri',
                   fontSize: 15,
-                  letterSpacing:
-                      0 /*percentages not used in flutter. defaulting to zero*/,
+                  letterSpacing: 0,
                   fontWeight: FontWeight.normal,
                   height: 1),
             ),

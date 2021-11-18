@@ -8,18 +8,23 @@ class BackArrow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        child: Icon(EvaIcons.arrowBack, size: 30),
-        width: 54,
-        height: 55,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(15),
-            topRight: Radius.circular(15),
-            bottomLeft: Radius.circular(15),
-            bottomRight: Radius.circular(15),
-          ),
-          color: Color.fromRGBO(244, 242, 242, 1),
-        ));
+    return GestureDetector(
+      onTap: () => {
+        Navigator.of(context).pop(),
+      },
+      child: Container(
+          child: Icon(EvaIcons.arrowBack, size: 30),
+          width: 54,
+          height: 55,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(15),
+              topRight: Radius.circular(15),
+              bottomLeft: Radius.circular(15),
+              bottomRight: Radius.circular(15),
+            ),
+            color: Color.fromRGBO(244, 242, 242, 1),
+          )),
+    );
   }
 }
