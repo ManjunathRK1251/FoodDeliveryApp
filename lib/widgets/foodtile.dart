@@ -24,6 +24,7 @@ class _FoodTileState extends State<FoodTile> {
             elevation: 5.0,
             shadowColor: Colors.black,
             child: Container(
+              //child: Image.asset('assets/icons/burger3.jpg', fit: BoxFit.fitWidth),
               width: 366,
               height: 199,
               decoration: const BoxDecoration(

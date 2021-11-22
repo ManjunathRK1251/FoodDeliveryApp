@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
+import 'package:food_delivery_app/globals.dart';
 import 'package:food_delivery_app/widgets/FoodPhoto.dart';
 import 'package:food_delivery_app/widgets/IngredientsTile.dart';
 import 'package:food_delivery_app/widgets/ServiceDetails.dart';
@@ -9,6 +10,7 @@ import 'package:food_delivery_app/widgets/foodtile.dart';
 import 'package:food_delivery_app/widgets/itemCounter.dart';
 import 'package:food_delivery_app/widgets/likebutton.dart';
 import 'package:food_delivery_app/widgets/category.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class OrderScreen extends StatefulWidget {
@@ -45,12 +47,56 @@ class _OrderScreenState extends State<OrderScreen> {
                 left: 20.0,
                 top: 555.0,
                 child: Padding(
-                  padding: const EdgeInsets.only(right: 8.0),
+                  padding: const EdgeInsets.only(
+                    right: 8.0,
+                    bottom: 20.0,
+                  ),
                   child: IngredientsTileList(),
                 )),
+            Positioned(left: 10.0, bottom: 5.0, child: AddToCart()),
           ],
         ),
       ),
+    );
+  }
+}
+
+class AddToCart extends StatefulWidget {
+  const AddToCart({Key? key}) : super(key: key);
+
+  @override
+  _AddToCartState createState() => _AddToCartState();
+}
+
+class _AddToCartState extends State<AddToCart> {
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        Container(
+            width: 374,
+            height: 73,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(27),
+                topRight: Radius.circular(27),
+                bottomLeft: Radius.circular(27),
+                bottomRight: Radius.circular(27),
+              ),
+              color: Color.fromRGBO(255, 104, 57, 1),
+            )),
+        Positioned(
+          left: 85.0,
+          top: 20.0,
+          child: Obx(() => Text(
+            'Add to Cart(\$${count*7.99 })',
+            style: GoogleFonts.roboto(
+              fontSize: 25,
+              color: Colors.white,
+            ),)
+          ),
+        ),
+      ],
     );
   }
 }

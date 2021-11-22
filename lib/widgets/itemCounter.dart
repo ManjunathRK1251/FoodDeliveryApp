@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:food_delivery_app/globals.dart';
+import 'package:get/get.dart';
 
 class ItemCounter extends StatefulWidget {
   const ItemCounter({Key? key}) : super(key: key);
@@ -9,7 +11,6 @@ class ItemCounter extends StatefulWidget {
 }
 
 class _ItemCounterState extends State<ItemCounter> {
-  int count = 1;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -68,13 +69,13 @@ class _ItemCounterState extends State<ItemCounter> {
         Positioned(
           top: 20.0,
           left: 75.0,
-          child: Text(
+          child: Obx(() => Text(
             '$count',
             style: GoogleFonts.roboto(
               fontSize: 30.0,
               fontWeight: FontWeight.w600,
             ),
-          ),
+          ),)
         ),
         Positioned(
           top: 15.0,
