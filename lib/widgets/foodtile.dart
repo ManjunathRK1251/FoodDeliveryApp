@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class FoodTile extends StatefulWidget {
-  const FoodTile({Key? key}) : super(key: key);
-
+  const FoodTile({Key? key, required this.foodname,required this.foodimage}) : super(key: key);
+  final foodname;
+  final foodimage;
   @override
   _FoodTileState createState() => _FoodTileState();
 }
@@ -27,9 +28,9 @@ class _FoodTileState extends State<FoodTile> {
               //child: Image.asset('assets/icons/burger3.jpg', fit: BoxFit.fitWidth),
               width: 366,
               height: 199,
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('assets/icons/burger3.jpg'),
+                  image: AssetImage(widget.foodimage),
                   fit: BoxFit.fill,
                 ),
                 borderRadius: BorderRadius.only(
@@ -60,11 +61,11 @@ class _FoodTileState extends State<FoodTile> {
               ),
             ),
           ),
-          const Positioned(
+          Positioned(
             bottom: 25.0,
             left: 20.0,
             child: Text(
-              'Chillox Burger',
+              widget.foodname,
               textAlign: TextAlign.center,
               style: TextStyle(
                   color: Colors.black,

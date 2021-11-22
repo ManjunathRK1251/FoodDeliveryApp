@@ -14,8 +14,10 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class OrderScreen extends StatefulWidget {
-  const OrderScreen({Key? key}) : super(key: key);
-
+  const OrderScreen({Key? key, required this.foodname, required this.foodphoto})
+      : super(key: key);
+  final foodname;
+  final foodphoto;
   @override
   _OrderScreenState createState() => _OrderScreenState();
 }
@@ -33,11 +35,11 @@ class _OrderScreenState extends State<OrderScreen> {
               height: double.infinity,
               color: Colors.white,
             ),
-            FoodPhoto(),
+            FoodPhoto(foodphoto:widget.foodphoto),
             Positioned(bottom: 380.0, left: 105.0, child: ItemCounter()),
             Positioned(left: 315.0, child: LikeButton()),
             Positioned(left: 20.0, child: BackArrow()),
-            Positioned(left: 20.0, top: 360.0, child: FoodName()),
+            Positioned(left: 20.0, top: 360.0, child: FoodName(foodname:widget.foodname)),
             Positioned(left: 20.0, top: 395.0, child: FoodDescription()),
             Positioned(left: 310.0, top: 368.0, child: FoodPrice()),
             Positioned(left: 295.0, top: 385.0, child: DollarSymbol()),
@@ -89,12 +91,12 @@ class _AddToCartState extends State<AddToCart> {
           left: 85.0,
           top: 20.0,
           child: Obx(() => Text(
-            'Add to Cart(\$${count*7.99 })',
-            style: GoogleFonts.roboto(
-              fontSize: 25,
-              color: Colors.white,
-            ),)
-          ),
+                'Add to Cart(\$${count * 7.99})',
+                style: GoogleFonts.roboto(
+                  fontSize: 25,
+                  color: Colors.white,
+                ),
+              )),
         ),
       ],
     );
@@ -117,13 +119,18 @@ class DollarSymbol extends StatelessWidget {
   }
 }
 
-class FoodName extends StatelessWidget {
-  const FoodName({Key? key}) : super(key: key);
+class FoodName extends StatefulWidget {
+  const FoodName({Key? key,required this.foodname}) : super(key: key);
+  final foodname;
+  @override
+  State<FoodName> createState() => _FoodNameState();
+}
 
+class _FoodNameState extends State<FoodName> {
   @override
   Widget build(BuildContext context) {
     return Text(
-      'Beef Burger',
+      widget.foodname,
       textAlign: TextAlign.left,
       style: GoogleFonts.robotoSlab(
         fontSize: 30,

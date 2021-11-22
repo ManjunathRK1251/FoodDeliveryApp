@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 
-class FoodPhoto extends StatelessWidget {
+class FoodPhoto extends StatefulWidget {
   const FoodPhoto({
-    Key? key,
+    Key? key,required this.foodphoto,
   }) : super(key: key);
 
+  final foodphoto;
+  @override
+  State<FoodPhoto> createState() => _FoodPhotoState();
+}
+
+class _FoodPhotoState extends State<FoodPhoto> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -16,7 +22,7 @@ class FoodPhoto extends StatelessWidget {
           bottomRight: Radius.circular(36),
         ),
         image: DecorationImage(
-            image: AssetImage('assets/icons/burger3.jpg'), fit: BoxFit.fill),
+            image: AssetImage(widget.foodphoto), fit: BoxFit.fill),
       ),
       //child: Image.asset('assets/icons/burger3.jpg'),
     );

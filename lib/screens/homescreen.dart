@@ -19,18 +19,25 @@ class homescreen extends StatefulWidget {
 // ignore: camel_case_types
 class _homescreenState extends State<homescreen> {
   late int selectedIndex = 0;
+  late int tileIndex = 0;
   String? _dropdownvalue = "India";
   List<String> items = ['India', 'China', 'America'];
   List<String> foods = ['🍔 Burger', '🍕 Pizza', '🥗 salad', '🍟 Fries'];
 
+  var food_info = [
+    {"name": "Chillox Burger", "image": "assets/images/chillox.jpg"},
+    {"name": "McAloo Tikki", "image": "assets/images/McAloo_tikki.jpg"},
+    {"name": "McDosa Burger", "image": "assets/images/McDosa_burger.jpg"},
+  ];
+
   void moveToOrderScreen() {
-    Navigator.of(context).push(
-      CupertinoPageRoute(
-        builder: (_) {
-          return OrderScreen();
-        },
-      ),
-    );
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => OrderScreen(
+              foodname: food_info[tileIndex]["name"],
+              foodphoto: food_info[tileIndex]["image"]),
+        ));
   }
 
   @override
@@ -177,15 +184,22 @@ class _homescreenState extends State<homescreen> {
             padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
             child: SizedBox(
               width: 500.0,
-              height: 210.0,
+              height: 232.0,
               child: GlowingOverscrollIndicator(
                 axisDirection: AxisDirection.down,
                 color: Colors.orange,
                 child: ListView.builder(
-                  itemCount: 5,
+                  itemCount: 3,
                   itemBuilder: (context, index) {
+                    print(index);
+                    tileIndex = index;
                     return GestureDetector(
-                        onTap: moveToOrderScreen, child: const FoodTile());
+                        behavior: HitTestBehavior.translucent,
+                        onTap: moveToOrderScreen,
+                        child: FoodTile(
+                          foodname: food_info[index]["name"],
+                          foodimage: food_info[index]["image"],
+                        ));
                   },
                 ),
               ),
@@ -196,3 +210,14 @@ class _homescreenState extends State<homescreen> {
     );
   }
 }
+
+// () => () {
+//                               print('tapped');
+//                               Navigator.push(
+//                                   context,
+//                                   MaterialPageRoute(
+//                                     builder: (context) => OrderScreen(
+//                                         foodname: food_info[index]["name"],
+//                                         foodphoto: food_info[index]["image"]),
+//                                   ));
+//                             },
