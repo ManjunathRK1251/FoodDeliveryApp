@@ -36,9 +36,9 @@ class _OrderScreenState extends State<OrderScreen> {
               color: Colors.white,
             ),
             FoodPhoto(foodphoto:widget.foodphoto),
-            Positioned(bottom: 380.0, left: 105.0, child: ItemCounter()),
-            Positioned(left: 315.0, child: LikeButton()),
-            Positioned(left: 20.0, child: BackArrow()),
+            Positioned(bottom: 380, left: 105.0, child: ItemCounter()), //380 for pixel 5 500 for note 10 pro max
+            Positioned(top: 15.0,left: 315.0, child: LikeButton()),
+            Positioned(top: 15.0,left: 20.0, child: BackArrow()),
             Positioned(left: 20.0, top: 360.0, child: FoodName(foodname:widget.foodname)),
             Positioned(left: 20.0, top: 395.0, child: FoodDescription()),
             Positioned(left: 310.0, top: 368.0, child: FoodPrice()),
