@@ -1,5 +1,7 @@
-# food_delivery_app
-
+# Food Delivery App
+<h3>Screenshots</h3>
+<img src = "Screenshots/screen1.png" width="200" height="380">
+<img src = "Screenshots/screen2.png" width="200" height="380">
 A new Flutter project.
 
 ## Getting Started
