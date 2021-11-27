@@ -33,7 +33,7 @@ class _homescreenState extends State<homescreen> {
   void moveToOrderScreen(index) {
     Navigator.push(
         context,
-        MaterialPageRoute(
+        CupertinoPageRoute(
           builder: (context) => OrderScreen(
               foodname: food_info[index]["name"],
               foodphoto: food_info[index]["image"],),
@@ -121,7 +121,7 @@ class _homescreenState extends State<homescreen> {
             ),
             child: SearchBar(),
           ),
-          // Figma Flutter Generator CategoriesWidget - TEXT
+
           Padding(
             padding: const EdgeInsets.only(left: 27.0, top: 25.0),
             child: Align(
@@ -184,7 +184,7 @@ class _homescreenState extends State<homescreen> {
             padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
             child: SizedBox(
               width: 500.0,
-              height: 232, //232 for pixel 5 ,354 for redmi note 10 pro max
+              height: 354, //232 for pixel 5 ,354 for redmi note 10 pro max :")
               child: GlowingOverscrollIndicator(
                 axisDirection: AxisDirection.down,
                 color: Colors.orange,
@@ -212,14 +212,3 @@ class _homescreenState extends State<homescreen> {
     );
   }
 }
-
-// () => () {
-//                               print('tapped');
-//                               Navigator.push(
-//                                   context,
-//                                   MaterialPageRoute(
-//                                     builder: (context) => OrderScreen(
-//                                         foodname: food_info[index]["name"],
-//                                         foodphoto: food_info[index]["image"]),
-//                                   ));
-//                             },

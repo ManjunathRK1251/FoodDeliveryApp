@@ -5,6 +5,7 @@ import 'package:food_delivery_app/globals.dart';
 import 'package:food_delivery_app/widgets/FoodPhoto.dart';
 import 'package:food_delivery_app/widgets/IngredientsTile.dart';
 import 'package:food_delivery_app/widgets/ServiceDetails.dart';
+import 'package:food_delivery_app/widgets/about.dart';
 import 'package:food_delivery_app/widgets/backarrow.dart';
 import 'package:food_delivery_app/widgets/foodtile.dart';
 import 'package:food_delivery_app/widgets/itemCounter.dart';
@@ -36,7 +37,7 @@ class _OrderScreenState extends State<OrderScreen> {
               color: Colors.white,
             ),
             FoodPhoto(foodphoto:widget.foodphoto),
-            Positioned(bottom: 380, left: 105.0, child: ItemCounter()), //380 for pixel 5 500 for note 10 pro max
+            Positioned(bottom: 500, left: 105.0, child: ItemCounter()), //380 for pixel 5 500 for note 10 pro max
             Positioned(top: 15.0,left: 315.0, child: LikeButton()),
             Positioned(top: 15.0,left: 20.0, child: BackArrow()),
             Positioned(left: 20.0, top: 360.0, child: FoodName(foodname:widget.foodname)),
@@ -56,6 +57,7 @@ class _OrderScreenState extends State<OrderScreen> {
                   child: IngredientsTileList(),
                 )),
             Positioned(left: 10.0, bottom: 5.0, child: AddToCart()),
+            Positioned(bottom: 100.0,child: About()),
           ],
         ),
       ),
