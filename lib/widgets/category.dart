@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/size_helpers.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Category extends StatelessWidget {
@@ -15,8 +16,9 @@ class Category extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = getWidth(context);
     return Padding(
-      padding: const EdgeInsets.only(right: 10.0),
+      padding: EdgeInsets.only(right: width * 0.025),
       child: Container(
         child: Align(
             child: Text(
@@ -27,14 +29,14 @@ class Category extends StatelessWidget {
               ),
             ),
             alignment: Alignment.center),
-        width: 105,
-        height: 55,
+        width: width * 0.267,
+        height: width * 0.1399,
         decoration: BoxDecoration(
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(15),
-            topRight: Radius.circular(15),
-            bottomLeft: Radius.circular(15),
-            bottomRight: Radius.circular(15),
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(width * 0.0381),
+            topRight: Radius.circular(width * 0.0381),
+            bottomLeft: Radius.circular(width * 0.0381),
+            bottomRight: Radius.circular(width * 0.0381),
           ),
           color: color,
         ),

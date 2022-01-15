@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/size_helpers.dart';
 
 class FoodPhoto extends StatefulWidget {
   const FoodPhoto({
@@ -13,13 +14,14 @@ class FoodPhoto extends StatefulWidget {
 class _FoodPhotoState extends State<FoodPhoto> {
   @override
   Widget build(BuildContext context) {
+    final width = getWidth(context);
     return Container(
-      width: 400,
-      height: 300,
+      width: width * 1.017,
+      height: width * 0.763,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(36),
-          bottomRight: Radius.circular(36),
+          bottomLeft: Radius.circular(width * 0.0916),
+          bottomRight: Radius.circular(width * 0.0916),
         ),
         image: DecorationImage(
             image: AssetImage(widget.foodphoto), fit: BoxFit.fill),
