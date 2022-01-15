@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:food_delivery_app/screens/orderscreen.dart';
+import 'package:food_delivery_app/size_helpers.dart';
 import 'package:food_delivery_app/widgets/category.dart';
 import 'package:food_delivery_app/widgets/foodtile.dart';
 import 'package:food_delivery_app/widgets/searchbar.dart';
@@ -35,36 +36,39 @@ class _homescreenState extends State<homescreen> {
         context,
         CupertinoPageRoute(
           builder: (context) => OrderScreen(
-              foodname: food_info[index]["name"],
-              foodphoto: food_info[index]["image"],),
+            foodname: food_info[index]["name"],
+            foodphoto: food_info[index]["image"],
+          ),
         ));
   }
 
   @override
   Widget build(BuildContext context) {
+    final width = getWidth(context);
+    final height = getHeight(context);
     return Scaffold(
       backgroundColor: Colors.white,
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(width * 0.02),
             child: Row(
               //mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Expanded(
                   child: SvgPicture.asset('assets/icons/menu.svg',
-                      width: 20, height: 20),
+                      width: width * 0.05, height: width * 0.05),
                 ),
-                const SizedBox(width: 65),
+                SizedBox(width: width * 0.16),
                 Expanded(
                   flex: 3,
                   child: Row(
                     children: [
                       SvgPicture.asset('assets/icons/location.svg',
-                          width: 30,
-                          height: 30,
+                          width:  width * 0.076,
+                          height: width * 0.076,
                           alignment: Alignment.topCenter),
-                      const SizedBox(width: 10, height: 10),
+                      SizedBox(width: width * 0.025, height: width * 0.025),
                       DropdownButtonHideUnderline(
                         child: DropdownButton(
                           alignment: Alignment.bottomLeft,
@@ -87,21 +91,21 @@ class _homescreenState extends State<homescreen> {
                     ],
                   ),
                 ),
-                const Expanded(
+                Expanded(
                   child: Icon(
                     Icons.notifications_none,
-                    size: 30,
+                    size: width * 0.076,
                   ),
                 ),
               ],
             ),
           ),
-          const SizedBox(height: 60.0),
+          SizedBox(height: width * 0.152 ),
           RichText(
             text: TextSpan(
               text: 'What do you want\n        for ',
               style: GoogleFonts.robotoSlab(
-                  fontSize: 25.0,
+                  fontSize: width * 0.063,
                   fontWeight: FontWeight.bold,
                   color: Colors.black),
               //style: DefaultTextStyle.of(context).style,
@@ -113,37 +117,36 @@ class _homescreenState extends State<homescreen> {
               ],
             ),
           ),
-          const SizedBox(height: 30.0),
+          SizedBox(height: width * 0.076),
           Padding(
-            padding: const EdgeInsets.only(
-              left: 20.0,
-              right: 20.0,
+            padding: EdgeInsets.only(
+              left: width * 0.05,
+              right: width * 0.05,
             ),
             child: SearchBar(),
           ),
-
           Padding(
-            padding: const EdgeInsets.only(left: 27.0, top: 25.0),
+            padding: EdgeInsets.only(left: width * 0.069, top: width * 0.064),
             child: Align(
               alignment: Alignment.bottomLeft,
               child: Text('Categories',
                   //textAlign: TextAlign.right,
                   style: GoogleFonts.robotoSlab(
                     color: Colors.black,
-                    fontSize: 20.0,
+                    fontSize: width * 0.051,
                     fontWeight: FontWeight.w600,
                   )),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(
-              left: 25.0,
-              top: 10.0,
-              right: 25.0,
+            padding:  EdgeInsets.only(
+              left: width * 0.064,
+              top: width * 0.025,
+              right: width * 0.064,
             ),
             child: SizedBox(
-              width: 500.0,
-              height: 60.0,
+              width: width * 1.27,
+              height: height * 0.069,
               child: ListView.builder(
                 itemCount: 4,
                 scrollDirection: Axis.horizontal,
@@ -168,23 +171,23 @@ class _homescreenState extends State<homescreen> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 27.0, top: 10.0),
+            padding: EdgeInsets.only(left: width * 0.069, top: width * 0.025),
             child: Align(
               alignment: Alignment.bottomLeft,
               child: Text('Popular',
                   //textAlign: TextAlign.right,
                   style: GoogleFonts.robotoSlab(
                     color: Colors.black,
-                    fontSize: 20.0,
+                    fontSize: width * 0.051,
                     fontWeight: FontWeight.w600,
                   )),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
+            padding: EdgeInsets.fromLTRB(width * 0.051, width * 0.025 , width * 0.051, width * 0.051),
             child: SizedBox(
-              width: 500.0,
-              height: 354, //232 for pixel 5 ,354 for redmi note 10 pro max :")
+              width: width * 1.27,
+              height: height * 0.405, //232 for pixel 5 ,354 for redmi note 10 pro max :")
               child: GlowingOverscrollIndicator(
                 axisDirection: AxisDirection.down,
                 color: Colors.orange,
@@ -195,9 +198,9 @@ class _homescreenState extends State<homescreen> {
                     tileIndex = index;
                     return GestureDetector(
                         behavior: HitTestBehavior.translucent,
-                        onTap:(){
+                        onTap: () {
                           moveToOrderScreen(index);
-                        } ,
+                        },
                         child: FoodTile(
                           foodname: food_info[index]["name"],
                           foodimage: food_info[index]["image"],
